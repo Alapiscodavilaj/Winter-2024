@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Text Size Adjuster</title>
+        
+        <script>
+            var textSize = 14;
+
+            function increaseTextSize () {
+                textSize++;
+                document.getElementById('text').style.fontSize = textSize + 'px';
+            }
+
+            function decreaseTextSize () {
+                if (textSize > 1) 
+                textSize--;
+                document.getElementById('text').style.fontSize = textSize + 'px';
+            }
+        </script>
+        <style>
+            p {
+                font-family: 'Times New Roman', Times, serif;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            button {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                margin-top: 15pt ;                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <button id="increase">Increase Size</button>
+        <button onclick="decreaseTextSize()" id="decrease">Decrease Size</button>
+
+        <p id="text">Jesus Alapisco</p>
+
+    <script>
+        document.getElementById('increase').addEventListener('click', increaseTextSize);
+        // document.getElementById('decrease').addEventListener('click', decreaseTextSize); <----- This is the Event Listener method to call a function with a button
+
+    </script>
+
+    </body>
+</html>

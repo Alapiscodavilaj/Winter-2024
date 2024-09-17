@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do List</title>
+
+        <script>
+
+            function sortList() {
+                    var list, i, switching, b, shouldSwitch;
+                    list = document.getElementById("myList");
+                    switching = true;
+
+                    while (switching) {
+                        switching = false;
+                        b = list.getElementsByTagName("li");
+                        for (i = 0; i < (b.length - 1); i++) {
+                            shouldSwitch = false;
+                            
+                            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                               
+                            shouldSwitch = true;
+                            break;
+                            }
+                        }
+                        if (shouldSwitch) {
+                        
+                        b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                        switching = true;
+                        }
+                    }
+                }
+            
+            
+            function addItem() {
+                    var ul = document.getElementById("myList");
+                    var newItem = document.getElementById("newItemInput").value;
+                    var li = document.createElement("li");
+                    li.appendChild(document.createTextNode(newItem));
+                    ul.appendChild(li);
+                }
+
+                function clearItems() {
+                
+                    while (myList.firstChild) {
+                    myList.removeChild(myList.firstChild);
+                }
+                }
+            function deleteSpecificItem() {
+             
+                }
+        </script>
+    </head>
+    <body>
+        <h1 id="myHeading">To Do List</h1>
+        <div id="buttons">
+            <button onclick="addItem()" style="margin-top: 15pt;">Add</button>
+            <button onclick="clearItems()" style="margin-top: 15pt;">Clear</button>
+            <button id="toggleList" onclick="sortList()">Sort</button>
+            <input type="text" id="delete"> <button id="toggleList" onclick="deleteSpecificItem()">Delete</button>
+
+        </div>
+            <div id="list">
+                <ul id="myList">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                </ul>
+                <p>Type a new item:</p>
+                <input type="text" id="newItemInput">
+                <br>
+                
+            </div>
+    </body>
+</html>
